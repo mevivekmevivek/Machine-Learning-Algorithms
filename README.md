@@ -1,2 +1,2 @@
 # Machine-Learning-
-ML ALgs
+ML ALgorithms coded from scratch
