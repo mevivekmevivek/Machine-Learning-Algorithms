@@ -26,28 +26,75 @@ Adaboost- Adaboost (Adaptive Boosting) is a very specific instance of boosting
  
  Pseudo Code :
 Fit (train data, target variable): 
- Step1- Classifiers = [], Alphas = [] (initializing empty classifier and alpha lists)
-5
+ Step1- Classifiers = [], Alphas = [] (initializing empty classifier and alpha lists).
+ 
  Step2- wi = Initializing the weights to 1/n
+ 
  Step3- For (all the number of classifiers):
  – Fit the week learner (h) for the train data (train data, target variable, sample weight)
+ 
  Step4- 
  Compute error = Sum (wi*I(yi!=h(xi) ) / Sum (wi)
  Compute α = 0.5*(log((1-error)/(error)))
  Update the weights wi = wi * exp(α*I(yi!=h(xi)
  
  Step5- Saving the classifier (h) and alphas
+
 Predict:
  H(x) = sign ( Sum (α*h(x)) )
  
- 
-Working- Adaboost classification algorithm works as the following
- Firstly, a random subset of the training data is selected by the Adaboost algorithm.
- The Adaboost algorithm is trained iteratively by selecting the train dataset based on the accurate 
-predictions from the previous iteration. 
- All the misclassified points are assigned with higher weights such that these wrongly classified points 
-are given higher priority in the next iteration.
- Also, based on the accuracy of the classifier, weights are assigned even to the classifier in each 
-iteration. Higher the accuracy of a classifier, greater will be the weight assigned.
- The above steps will continue till the entire training data is fitted and the training error is zero.
- Classification is done by performing a vote across all the built learning algorithms.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Algorithm: PCA
+
+1) An algorithmic description of PCA
+Principal component analysis is primarily used to reduce the dimensions of the dataset if the number of 
+variables in a dataset is huge. Generally PCA outputs principal components which are the linear 
+combination of optimally-weighted observed variables. Principal components are eigenvectors and 
+these eigenvectors satisfy the principle of east squares. Below are the steps that need to be followed 
+for PCA implementation.
+
+
+Covariance(Data):
+Step1- form a zero matrix of the shape of data
+Step2_ compute mean and norm
+Step 3-update each element of the above formed matrix
+
+PCA_ Train (Data, Reduced number of dimensions ):
+Step1- Calculate the mean, covariance and C
+Step2- calculate the eigen values and eigen vectors
+Step3-sort the eigen values and select the top eigen values and corresponding vector
+
+Step4_ compute the project matrix and return the mean, eigen vectors, Project matrix and eigen 
+values. 
+PCA_ Transform (Data, mean, eigen vectors ):
+Step1- Calculate C
+Step2- project the data using eigen vectors and C
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Algorithm : Kmeans
+
+An algorithmic description of KMEANS
+Kmeans is an unsupervised learning technique, the basic idea begin the algorithm is to group the data 
+into various clusters. Below are the steps of the Kmeans algorithm.
+
+1. Select K centroids randomly (Centroids can also be selected with some conditions)
+2. Compute the Euclidian distances of all the data points from these centroids. 
+3. Assign the data points to their closest clusters based on the Euclidian distances calculated.
+4. Compute the new centroids of the clusters simply by calculating the mean of each cluster.
+5. Repeat the above steps until the centroids stop moving.
+
+In the first step for assigning the clusters, we need to calculate the distances of each randomly selected 
+centroid to all the data points in the dataset. While updating the centroids in the step 4, as we have 
+already assigned the clusters, we calculate the distances of the centroid from all the data points in their 
+respective clusters.
+
+Major Limitations of Kmeans
+
+1. It is not possible to know the number of clusters or K in all the cases.
+2. Kmeans is very sensitive to outliers as the entire algorithm depends on the calculation of 
+distances and mean.
+3. Kmeans is hard clustering algorithm, that is, it does not gives the probabilities with which each 
+point belong to a cluster. It rather just says if the point belongs to a cluster or not. Hard 
+clustering will result in loss of informatio
