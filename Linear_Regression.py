@@ -49,7 +49,7 @@ lr.fit(X_train,y_train)
 
 predicted_op = lr.predict(X_test)
 
-# Performance meausing
+# Performance meausing MSE
 mse = np.mean((y_test -predicted_op)**2)
 print("The Mean Squared Error is : ", mse)
 
