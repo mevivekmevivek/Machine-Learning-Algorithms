@@ -19,7 +19,7 @@ The weak learner h (x) is implemented on the given training set S = (x1, y1),(x2
 l(H) is the loss function which is convex and differentiable.
 Adaboost- Adaboost (Adaptive Boosting) is a very specific instance of boosting 
 1) where the loss function is chosen as l (below equation (2))
-2) optimal value of α is chosen by performing a line search 
+2) optimal value of α is chosen by performing a line search.
  
  
  
